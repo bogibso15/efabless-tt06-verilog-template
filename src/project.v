@@ -125,10 +125,6 @@ module my_design (
 genvar digit, exp, input_label, leds, sbox_k, sbox_subword, sub_word, switch, xx, yy;
 
 
-//
-// Signals declared top-level.
-//
-
 // For $slideswitch.
 logic [7:0] L0_slideswitch_a0;
 
@@ -140,6 +136,29 @@ logic [7:0] L0_sseg_digit_n_a0;
 
 // For $sseg_segment_n.
 logic [6:0] L0_sseg_segment_n_a0;
+
+//
+// Scope: /digit[0:0]
+//
+
+//
+// Scope: /digit/leds[7:0]
+//
+
+// For /digit/leds$viz_lit.
+logic Digit_Leds_viz_lit_a0 [0:0][7:0];
+
+//
+// Scope: /fpga_pins
+//
+
+//
+// Scope: /fpga_pins/fpga
+//
+
+//
+// Scope: /fpga_pins/fpga|encrypt
+//
 
 // For /fpga_pins/fpga|encrypt$blk_counter.
 logic [22:0] FpgaPins_Fpga_ENCRYPT_blk_counter_a0,
@@ -206,8 +225,16 @@ logic FpgaPins_Fpga_ENCRYPT_valid_blk_a0;
 // For /fpga_pins/fpga|encrypt$valid_check.
 logic FpgaPins_Fpga_ENCRYPT_valid_check_a0;
 
+//
+// Scope: /fpga_pins/fpga|encrypt/check
+//
+
 // For /fpga_pins/fpga|encrypt/check$pass.
 logic [0:0] FpgaPins_Fpga_ENCRYPT_Check_pass_a0;
+
+//
+// Scope: /fpga_pins/fpga|encrypt/keyschedule
+//
 
 // For /fpga_pins/fpga|encrypt/keyschedule$g0_run_key.
 logic FpgaPins_Fpga_ENCRYPT_Keyschedule_g0_run_key_a0;
@@ -250,24 +277,98 @@ logic [31:0] FpgaPins_Fpga_ENCRYPT_Keyschedule_temp_a0;
 // For /fpga_pins/fpga|encrypt/keyschedule$xor_con.
 logic [31:0] FpgaPins_Fpga_ENCRYPT_Keyschedule_xor_con_a0;
 
+//
+// Scope: /fpga_pins/fpga|encrypt/keyschedule/sbox_k[3:0]
+//
+
+// For /fpga_pins/fpga|encrypt/keyschedule/sbox_k$sb_idx.
+logic [10:0] FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_idx_a0 [3:0];
+
+// For /fpga_pins/fpga|encrypt/keyschedule/sbox_k$sb_intermed.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0 [3:0];
+
+// For /fpga_pins/fpga|encrypt/keyschedule/sbox_k$word_idx.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_word_idx_a0 [3:0];
+
+//
+// Scope: /fpga_pins/fpga|encrypt/mixcolumn
+//
+
 // For /fpga_pins/fpga|encrypt/mixcolumn$block_out.
 logic [127:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_block_out_a0;
 
 // For /fpga_pins/fpga|encrypt/mixcolumn$const_matrix.
 logic [127:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_const_matrix_a0;
 
+//
+// Scope: /fpga_pins/fpga|encrypt/mixcolumn/xx[3:0]
+//
+
 // For /fpga_pins/fpga|encrypt/mixcolumn/xx$out_matrix.
-logic [3:0][31:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0;
+logic [3:0] [31:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0;
+
+//
+// Scope: /fpga_pins/fpga|encrypt/mixcolumn/xx/yy[3:0]
+//
 
 // For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy$cc.
 logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0 [3:0][3:0];
 
+// For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy$oo.
+logic [3:0] [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_oo_a0 [3:0];
+
 // For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy$ss.
 logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0 [3:0][3:0];
+
+//
+// Scope: /fpga_pins/fpga|encrypt/mixcolumn/xx/yy/exp[3:0]
+//
+
+// For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy/exp$op.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0 [3:0][3:0][3:0];
+
+// For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy/exp$reduce_check.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_reduce_check_a0 [3:0][3:0][3:0];
+
+// For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy/exp$three_check.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_three_check_a0 [3:0][3:0][3:0];
+
+//
+// Scope: /fpga_pins/fpga|encrypt/subbytes
+//
 
 // For /fpga_pins/fpga|encrypt/subbytes$ssr_out.
 logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
 
+//
+// Scope: /fpga_pins/fpga|encrypt/subbytes/sub_word[3:0]
+//
+
+// For /fpga_pins/fpga|encrypt/subbytes/sub_word$sb_out.
+logic [31:0] FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0 [3:0];
+
+// For /fpga_pins/fpga|encrypt/subbytes/sub_word$word.
+logic [31:0] FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_word_a0 [3:0];
+
+//
+// Scope: /fpga_pins/fpga|encrypt/subbytes/sub_word/sbox_subword[3:0]
+//
+
+// For /fpga_pins/fpga|encrypt/subbytes/sub_word/sbox_subword$sb_idx.
+logic [10:0] FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_idx_a0 [3:0][3:0];
+
+// For /fpga_pins/fpga|encrypt/subbytes/sub_word/sbox_subword$sb_intermed.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0 [3:0][3:0];
+
+// For /fpga_pins/fpga|encrypt/subbytes/sub_word/sbox_subword$word_idx.
+logic [7:0] FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_word_idx_a0 [3:0][3:0];
+
+//
+// Scope: /switch[7:0]
+//
+
+// For /switch$viz_switch.
+logic Switch_viz_switch_a0 [7:0];
 
 
 
@@ -356,7 +457,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
          //
          for (leds = 0; leds <= 7; leds++) begin : \/leds 
             (* keep *) logic  \//@0$viz_lit ;
-            assign \//@0$viz_lit = L1_Digit[digit].L2_Leds[leds].L2_viz_lit_a0;
+            assign \//@0$viz_lit = Digit_Leds_viz_lit_a0[digit][leds];
          end
       end
 
@@ -455,11 +556,11 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                   //
                   for (sbox_k = 0; sbox_k <= 3; sbox_k++) begin : \/sbox_k 
                      (* keep *) logic [10:0] \///?$valid_blk/?$run_key/@0$sb_idx ;
-                     assign \///?$valid_blk/?$run_key/@0$sb_idx = L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[sbox_k].L1_sb_idx_a0;
+                     assign \///?$valid_blk/?$run_key/@0$sb_idx = FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_idx_a0[sbox_k];
                      (* keep *) logic [7:0] \///?$valid_blk/?$run_key/@0$sb_intermed ;
-                     assign \///?$valid_blk/?$run_key/@0$sb_intermed = L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[sbox_k].L1_sb_intermed_a0;
+                     assign \///?$valid_blk/?$run_key/@0$sb_intermed = FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[sbox_k];
                      (* keep *) logic [7:0] \///?$valid_blk/?$run_key/@0$word_idx ;
-                     assign \///?$valid_blk/?$run_key/@0$word_idx = L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[sbox_k].L1_word_idx_a0;
+                     assign \///?$valid_blk/?$run_key/@0$word_idx = FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_word_idx_a0[sbox_k];
                   end
                end
 
@@ -486,7 +587,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         (* keep *) logic [7:0] \///?$valid_blk///@0$cc ;
                         assign \///?$valid_blk///@0$cc = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[xx][yy];
                         (* keep *) logic [7:0] \///?$valid_blk///@0$oo ;
-                        assign \///?$valid_blk///@0$oo = L1_FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx[xx].L1_Yy_oo_a0[yy];
+                        assign \///?$valid_blk///@0$oo = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_oo_a0[xx][yy];
                         (* keep *) logic [7:0] \///?$valid_blk///@0$ss ;
                         assign \///?$valid_blk///@0$ss = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][yy];
 
@@ -495,11 +596,11 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         //
                         for (exp = 0; exp <= 3; exp++) begin : \/exp 
                            (* keep *) logic [7:0] \///?$valid_blk////@0$op ;
-                           assign \///?$valid_blk////@0$op = L1_FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx[xx].L2_Yy[yy].L3_Exp[exp].L3_op_a0;
+                           assign \///?$valid_blk////@0$op = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][exp];
                            (* keep *) logic [7:0] \///?$valid_blk////@0$reduce_check ;
-                           assign \///?$valid_blk////@0$reduce_check = L1_FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx[xx].L2_Yy[yy].L3_Exp[exp].L3_reduce_check_a0;
+                           assign \///?$valid_blk////@0$reduce_check = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_reduce_check_a0[xx][yy][exp];
                            (* keep *) logic [7:0] \///?$valid_blk////@0$three_check ;
-                           assign \///?$valid_blk////@0$three_check = L1_FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx[xx].L2_Yy[yy].L3_Exp[exp].L3_three_check_a0;
+                           assign \///?$valid_blk////@0$three_check = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_three_check_a0[xx][yy][exp];
                         end
                      end
                   end
@@ -517,20 +618,20 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                   //
                   for (sub_word = 0; sub_word <= 3; sub_word++) begin : \/sub_word 
                      (* keep *) logic [31:0] \///?$valid_blk//@0$sb_out ;
-                     assign \///?$valid_blk//@0$sb_out = L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[sub_word].L1_sb_out_a0;
+                     assign \///?$valid_blk//@0$sb_out = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[sub_word];
                      (* keep *) logic [31:0] \///?$valid_blk//@0$word ;
-                     assign \///?$valid_blk//@0$word = L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[sub_word].L1_word_a0;
+                     assign \///?$valid_blk//@0$word = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_word_a0[sub_word];
 
                      //
                      // Scope: /sbox_subword[3:0]
                      //
                      for (sbox_subword = 0; sbox_subword <= 3; sbox_subword++) begin : \/sbox_subword 
                         (* keep *) logic [10:0] \///?$valid_blk///@0$sb_idx ;
-                        assign \///?$valid_blk///@0$sb_idx = L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[sub_word].L2_SboxSubword[sbox_subword].L2_sb_idx_a0;
+                        assign \///?$valid_blk///@0$sb_idx = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_idx_a0[sub_word][sbox_subword];
                         (* keep *) logic [7:0] \///?$valid_blk///@0$sb_intermed ;
-                        assign \///?$valid_blk///@0$sb_intermed = L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[sub_word].L2_SboxSubword[sbox_subword].L2_sb_intermed_a0;
+                        assign \///?$valid_blk///@0$sb_intermed = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][sbox_subword];
                         (* keep *) logic [7:0] \///?$valid_blk///@0$word_idx ;
-                        assign \///?$valid_blk///@0$word_idx = L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[sub_word].L2_SboxSubword[sbox_subword].L2_word_idx_a0;
+                        assign \///?$valid_blk///@0$word_idx = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_word_idx_a0[sub_word][sbox_subword];
                      end
                   end
                end
@@ -543,7 +644,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
       //
       for (switch = 0; switch <= 7; switch++) begin : \/switch 
          (* keep *) logic  \/@0$viz_switch ;
-         assign \/@0$viz_switch = L1_Switch[switch].L1_viz_switch_a0;
+         assign \/@0$viz_switch = Switch_viz_switch_a0[switch];
       end
 
 
@@ -649,22 +750,12 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         
                                  //_\source top.tlv 53   // Instantiated from top.tlv, 123 as: m5+sbox(/keyschedule, /sbox_k, $rot)
                                     for (sbox_k = 0; sbox_k <= 3; sbox_k++) begin : L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK //_/sbox_k
-
-                                       // For $sb_idx.
-                                       logic [10:0] L1_sb_idx_a0;
-
-                                       // For $sb_intermed.
-                                       logic [7:0] L1_sb_intermed_a0;
-
-                                       // For $word_idx.
-                                       logic [7:0] L1_word_idx_a0;
-
                                  
-                                       assign L1_sb_idx_a0[10:0] = 2040-8*L1_word_idx_a0;
-                                       assign L1_word_idx_a0[7:0] = FpgaPins_Fpga_ENCRYPT_Keyschedule_rot_a0[32-(8 * (sbox_k+1)) +: 8];
-                                       assign L1_sb_intermed_a0[7:0] = FpgaPins_Fpga_ENCRYPT_sbox_vec_a0[L1_sb_idx_a0 +: 8];
+                                       assign FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_idx_a0[sbox_k][10:0] = 2040-8*FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_word_idx_a0[sbox_k];
+                                       assign FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_word_idx_a0[sbox_k][7:0] = FpgaPins_Fpga_ENCRYPT_Keyschedule_rot_a0[32-(8 * (sbox_k+1)) +: 8];
+                                       assign FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[sbox_k][7:0] = FpgaPins_Fpga_ENCRYPT_sbox_vec_a0[FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_idx_a0[sbox_k] +: 8];
                                     end
-                                    assign FpgaPins_Fpga_ENCRYPT_Keyschedule_sb_out_a0[31:0] = {L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[0].L1_sb_intermed_a0, L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[1].L1_sb_intermed_a0, L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[2].L1_sb_intermed_a0, L1_FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK[3].L1_sb_intermed_a0};
+                                    assign FpgaPins_Fpga_ENCRYPT_Keyschedule_sb_out_a0[31:0] = {FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[0], FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[1], FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[2], FpgaPins_Fpga_ENCRYPT_Keyschedule_SboxK_sb_intermed_a0[3]};
                                  //_\end_source
                         
                                  assign FpgaPins_Fpga_ENCRYPT_Keyschedule_rcon_a0[7:0] = FpgaPins_Fpga_ENCRYPT_r_counter_a0 == 0 ? 8'h01 : //round constant
@@ -687,39 +778,22 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         //_\source top.tlv 42   // Instantiated from top.tlv, 196 as: m5+subbytes(|encrypt, /subbytes, $state_i)
                            //_/subbytes
                               for (sub_word = 0; sub_word <= 3; sub_word++) begin : L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord //_/sub_word
-
-                                 // For $sb_out.
-                                 logic [31:0] L1_sb_out_a0;
-
-                                 // For $word.
-                                 logic [31:0] L1_word_a0;
-
-                                 assign L1_word_a0[31:0] = FpgaPins_Fpga_ENCRYPT_state_i_a0[128-(32*(sub_word+1))+:32];
+                                 assign FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_word_a0[sub_word][31:0] = FpgaPins_Fpga_ENCRYPT_state_i_a0[128-(32*(sub_word+1))+:32];
                                  //_\source top.tlv 53   // Instantiated from top.tlv, 46 as: m5+sbox(/sub_word, /sbox_subword, $word)
                                     for (sbox_subword = 0; sbox_subword <= 3; sbox_subword++) begin : L2_SboxSubword //_/sbox_subword
-
-                                       // For $sb_idx.
-                                       logic [10:0] L2_sb_idx_a0;
-
-                                       // For $sb_intermed.
-                                       logic [7:0] L2_sb_intermed_a0;
-
-                                       // For $word_idx.
-                                       logic [7:0] L2_word_idx_a0;
-
                                  
-                                       assign L2_sb_idx_a0[10:0] = 2040-8*L2_word_idx_a0;
-                                       assign L2_word_idx_a0[7:0] = L1_word_a0[32-(8 * (sbox_subword+1)) +: 8];
-                                       assign L2_sb_intermed_a0[7:0] = FpgaPins_Fpga_ENCRYPT_sbox_vec_a0[L2_sb_idx_a0 +: 8];
+                                       assign FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_idx_a0[sub_word][sbox_subword][10:0] = 2040-8*FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_word_idx_a0[sub_word][sbox_subword];
+                                       assign FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_word_idx_a0[sub_word][sbox_subword][7:0] = FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_word_a0[sub_word][32-(8 * (sbox_subword+1)) +: 8];
+                                       assign FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][sbox_subword][7:0] = FpgaPins_Fpga_ENCRYPT_sbox_vec_a0[FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_idx_a0[sub_word][sbox_subword] +: 8];
                                     end
-                                    assign L1_sb_out_a0[31:0] = {L2_SboxSubword[0].L2_sb_intermed_a0, L2_SboxSubword[1].L2_sb_intermed_a0, L2_SboxSubword[2].L2_sb_intermed_a0, L2_SboxSubword[3].L2_sb_intermed_a0};
+                                    assign FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[sub_word][31:0] = {FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][0], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][1], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][2], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_SboxSubword_sb_intermed_a0[sub_word][3]};
                                  //_\end_source
                               end
                         
-                              assign FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0[127:0] = {L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[0].L1_sb_out_a0[31:24], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[1].L1_sb_out_a0[23:16], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[2].L1_sb_out_a0[15:8], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[3].L1_sb_out_a0[7:0],
-                                                 L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[1].L1_sb_out_a0[31:24], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[2].L1_sb_out_a0[23:16], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[3].L1_sb_out_a0[15:8], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[0].L1_sb_out_a0[7:0],
-                                                 L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[2].L1_sb_out_a0[31:24], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[3].L1_sb_out_a0[23:16], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[0].L1_sb_out_a0[15:8], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[1].L1_sb_out_a0[7:0],
-                                                 L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[3].L1_sb_out_a0[31:24], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[0].L1_sb_out_a0[23:16], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[1].L1_sb_out_a0[15:8], L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord[2].L1_sb_out_a0[7:0]};
+                              assign FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0[127:0] = {FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[0][31:24], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[1][23:16], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[2][15:8], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[3][7:0],
+                                                 FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[1][31:24], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[2][23:16], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[3][15:8], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[0][7:0],
+                                                 FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[2][31:24], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[3][23:16], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[0][15:8], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[1][7:0],
+                                                 FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[3][31:24], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[0][23:16], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[1][15:8], FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord_sb_out_a0[2][7:0]};
                         //_\end_source
                         assign FpgaPins_Fpga_ENCRYPT_state_ssr_a0[127:0] = FpgaPins_Fpga_ENCRYPT_r_counter_a0 ==0 ? FpgaPins_Fpga_ENCRYPT_state_i_a0 : FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
             
@@ -729,33 +803,19 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         
                               assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_const_matrix_a0[127:0] = 128'h02030101010203010101020303010102; //constant matrix for column multiplicaiton in the form of a vector
                               for (xx = 0; xx <= 3; xx++) begin : L1_FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx //_/xx
-
-                                 // For /yy$oo.
-                                 logic [3:0] [7:0] L1_Yy_oo_a0;
-
                                  for (yy = 0; yy <= 3; yy++) begin : L2_Yy //_/yy
                                     assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][yy][7:0] = FpgaPins_Fpga_ENCRYPT_state_ssr_a0[(yy * 8 + xx * 32) + 7 : (yy * 8 + xx * 32)];     //breaks the input vector and
                                     assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[xx][yy][7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_const_matrix_a0[(yy * 32 + xx * 8) + 7 : (yy * 32 + xx * 8)]; //constant matrix into matrices
                                     for (exp = 0; exp <= 3; exp++) begin : L3_Exp //_/exp
-
-                                       // For $op.
-                                       logic [7:0] L3_op_a0;
-
-                                       // For $reduce_check.
-                                       logic [7:0] L3_reduce_check_a0;
-
-                                       // For $three_check.
-                                       logic [7:0] L3_three_check_a0;
-
                         
-                                       assign L3_reduce_check_a0[7:0] = (FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp][7] == 1) && (FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] != 8'h01) ? 8'h1b : 8'h00; //check if a reduction by the irreducibly polynomial is necessary
-                                       assign L3_three_check_a0[7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] == 8'h03 ? FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] : 8'h00; //check if a multiplication by 3 is being done
-                                       assign L3_op_a0[7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] == 8'h01 ? FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] : ((FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] << 1) ^ L3_three_check_a0 ^ L3_reduce_check_a0); //if 1, identity. otherwise, bitshift & other operations.
+                                       assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_reduce_check_a0[xx][yy][exp][7:0] = (FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp][7] == 1) && (FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] != 8'h01) ? 8'h1b : 8'h00; //check if a reduction by the irreducibly polynomial is necessary
+                                       assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_three_check_a0[xx][yy][exp][7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] == 8'h03 ? FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] : 8'h00; //check if a multiplication by 3 is being done
+                                       assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][exp][7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0[exp][yy] == 8'h01 ? FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] : ((FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_ss_a0[xx][exp] << 1) ^ FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_three_check_a0[xx][yy][exp] ^ FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_reduce_check_a0[xx][yy][exp]); //if 1, identity. otherwise, bitshift & other operations.
                                     end
-                                    assign L1_Yy_oo_a0[yy][7:0] = L3_Exp[0].L3_op_a0 ^ L3_Exp[1].L3_op_a0 ^ L3_Exp[2].L3_op_a0 ^ L3_Exp[3].L3_op_a0; //xor the bytes together
+                                    assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_oo_a0[xx][yy][7:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][0] ^ FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][1] ^ FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][2] ^ FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_Exp_op_a0[xx][yy][3]; //xor the bytes together
                                     
                                  end
-                                 assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0[xx][31:0] = L1_Yy_oo_a0; //concat matrix rows
+                                 assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0[xx][31:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_oo_a0[xx]; //concat matrix rows
                               end
                               assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_block_out_a0[127:0] = FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0; //concat matrix columns
                         //_\end_source
@@ -795,11 +855,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
          for (digit = 0; digit <= 0; digit++) begin : L1_Digit //_/digit
             
             for (leds = 0; leds <= 7; leds++) begin : L2_Leds //_/leds
-
-               // For $viz_lit.
-               logic L2_viz_lit_a0;
-
-               assign L2_viz_lit_a0 = (! L0_sseg_digit_n_a0[digit]) && ! ((leds == 7) ? L0_sseg_decimal_point_n_a0 : L0_sseg_segment_n_a0[leds % 7]);
+               assign Digit_Leds_viz_lit_a0[digit][leds] = (! L0_sseg_digit_n_a0[digit]) && ! ((leds == 7) ? L0_sseg_decimal_point_n_a0 : L0_sseg_segment_n_a0[leds % 7]);
                
             end
          end
@@ -808,11 +864,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
       // slideswitches
       //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 454   // Instantiated from /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv, 349 as: m4+fpga_switch.
          for (switch = 0; switch <= 7; switch++) begin : L1_Switch //_/switch
-
-            // For $viz_switch.
-            logic L1_viz_switch_a0;
-
-            assign L1_viz_switch_a0 = L0_slideswitch_a0[switch];
+            assign Switch_viz_switch_a0[switch] = L0_slideswitch_a0[switch];
             
          end
       //_\end_source
