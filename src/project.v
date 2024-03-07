@@ -257,7 +257,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_block_out_a0;
 logic [127:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_const_matrix_a0;
 
 // For /fpga_pins/fpga|encrypt/mixcolumn/xx$out_matrix.
-logic [3:0] [31:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0;
+logic [3:0][31:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_out_matrix_a0;
 
 // For /fpga_pins/fpga|encrypt/mixcolumn/xx/yy$cc.
 logic [7:0] FpgaPins_Fpga_ENCRYPT_Mixcolumn_Xx_Yy_cc_a0 [3:0][3:0];
