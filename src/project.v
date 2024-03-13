@@ -580,7 +580,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                      //
                      //
             
-                     assign FpgaPins_Fpga_ENCRYPT_ui_in_a0[7:0] = ui_in;   //Input to determine mode/keys
+                     assign FpgaPins_Fpga_ENCRYPT_ui_in_a0[7:0] = 10000001;   //Input to determine mode/keys
                      assign FpgaPins_Fpga_ENCRYPT_ofb_a0 = FpgaPins_Fpga_ENCRYPT_ui_in_a0[7];             //Switch to determine mode
                      assign FpgaPins_Fpga_ENCRYPT_blocks_to_run_a0[22:0] = 2000000;     //Blocks of AES to run if in OFB
             
@@ -829,7 +829,6 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
 
 //_\SV
 endmodule
-
 
 
 // Undefine macros defined by SandPiper.
