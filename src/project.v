@@ -5,7 +5,7 @@
    // Included URL: "https://raw.githubusercontent.com/efabless/chipcraft---mest-course/main/tlv_lib/calculator_shell_lib.tlv"
    // Include Tiny Tapeout Lab.
    // Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlv_lib/tiny_tapeout_lib.tlv"// Included URL: "https://raw.githubusercontent.com/os-fpga/Virtual-FPGA-Lab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlv_lib/fpga_includes.tlv"
-//_\source top.tlv 213
+//_\source top.tlv 215
 
 //_\SV
 
@@ -153,8 +153,8 @@ logic FpgaPins_Fpga_ENCRYPT_ld_init_a0,
       FpgaPins_Fpga_ENCRYPT_ld_init_a1;
 
 // For /fpga_pins/fpga|encrypt$ld_key.
-logic FpgaPins_Fpga_ENCRYPT_ld_key_a0,
-      FpgaPins_Fpga_ENCRYPT_ld_key_a1;
+logic [0:0] FpgaPins_Fpga_ENCRYPT_ld_key_a0,
+            FpgaPins_Fpga_ENCRYPT_ld_key_a1;
 
 // For /fpga_pins/fpga|encrypt$ofb.
 logic FpgaPins_Fpga_ENCRYPT_ofb_a0;
@@ -289,7 +289,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
             always_ff @(posedge clk) FpgaPins_Fpga_ENCRYPT_ld_init_a1 <= FpgaPins_Fpga_ENCRYPT_ld_init_a0;
 
             // Staging of $ld_key.
-            always_ff @(posedge clk) FpgaPins_Fpga_ENCRYPT_ld_key_a1 <= FpgaPins_Fpga_ENCRYPT_ld_key_a0;
+            always_ff @(posedge clk) FpgaPins_Fpga_ENCRYPT_ld_key_a1[0] <= FpgaPins_Fpga_ENCRYPT_ld_key_a0[0];
 
             // Staging of $r_counter.
             always_ff @(posedge clk) FpgaPins_Fpga_ENCRYPT_r_counter_a1[4:0] <= FpgaPins_Fpga_ENCRYPT_r_counter_a0[4:0];
@@ -377,7 +377,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                assign \///@0$blocks_to_run = FpgaPins_Fpga_ENCRYPT_blocks_to_run_a0;
                (* keep *) logic  \///?$valid_blk@0$ld_init ;
                assign \///?$valid_blk@0$ld_init = FpgaPins_Fpga_ENCRYPT_ld_init_a0;
-               (* keep *) logic  \///?$valid_blk@0$ld_key ;
+               (* keep *) logic [0:0] \///?$valid_blk@0$ld_key ;
                assign \///?$valid_blk@0$ld_key = FpgaPins_Fpga_ENCRYPT_ld_key_a0;
                (* keep *) logic  \///@0$ofb ;
                assign \///@0$ofb = FpgaPins_Fpga_ENCRYPT_ofb_a0;
@@ -550,7 +550,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
 //_\TLV
    /* verilator lint_off UNOPTFLAT */
    // Connect Tiny Tapeout I/Os to Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 268 as: m5+tt_connections()
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 76   // Instantiated from top.tlv, 270 as: m5+tt_connections()
       assign L0_slideswitch_a0[7:0] = ui_in;
       assign L0_sseg_segment_n_a0[6:0] = ~ uo_out[6:0];
       assign L0_sseg_decimal_point_n_a0 = ~ uo_out[7];
@@ -558,7 +558,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
    //_\end_source
 
    // Instantiate the Virtual FPGA Lab.
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 271 as: m5+board(/top, /fpga, 7, $, , calc)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 307   // Instantiated from top.tlv, 273 as: m5+board(/top, /fpga, 7, $, , calc)
       
       //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv 355   // Instantiated from /raw.githubusercontent.com/osfpga/VirtualFPGALab/a069f1e4e19adc829b53237b3e0b5d6763dc3194/tlvlib/fpgaincludes.tlv, 309 as: m4+thanks(m5__l(309)m5_eval(m5_get(BOARD_THANKS_ARGS)))
          //_/thanks
@@ -580,7 +580,8 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                      //
                      //
             
-                     assign FpgaPins_Fpga_ENCRYPT_ui_in_a0[7:0] = 10000001;   //Input to determine mode/keys
+                     assign FpgaPins_Fpga_ENCRYPT_ui_in_a0[7:0] = ui_in;   //Input to determine mode/keys
+                     //$uo_out[7:0] = *uo_out; //Output for trigger / checking
                      assign FpgaPins_Fpga_ENCRYPT_ofb_a0 = FpgaPins_Fpga_ENCRYPT_ui_in_a0[7];             //Switch to determine mode
                      assign FpgaPins_Fpga_ENCRYPT_blocks_to_run_a0[22:0] = 2000000;     //Blocks of AES to run if in OFB
             
@@ -610,7 +611,8 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         //If in ECB, this checks to see if the AES block if completed
             
             
-                        assign FpgaPins_Fpga_ENCRYPT_ld_key_a0 = ((!FpgaPins_Fpga_ENCRYPT_reset_a0 && FpgaPins_Fpga_ENCRYPT_reset_a1) || FpgaPins_Fpga_ENCRYPT_r_counter_a1 == 10) ? 1 : 0;
+                        assign FpgaPins_Fpga_ENCRYPT_ld_key_a0[0] = ((!FpgaPins_Fpga_ENCRYPT_reset_a0 && FpgaPins_Fpga_ENCRYPT_reset_a1) || FpgaPins_Fpga_ENCRYPT_r_counter_a1 == 10) ? 1 : 0;
+                        assign uo_out[7] = FpgaPins_Fpga_ENCRYPT_ld_key_a0[0];
             
                         assign FpgaPins_Fpga_ENCRYPT_run_key_a0 = (!FpgaPins_Fpga_ENCRYPT_ld_key_a0 && FpgaPins_Fpga_ENCRYPT_ld_key_a1) ? 1 :
                                    (FpgaPins_Fpga_ENCRYPT_run_key_a1 && FpgaPins_Fpga_ENCRYPT_ofb_a0 && FpgaPins_Fpga_ENCRYPT_blk_counter_a1 <= FpgaPins_Fpga_ENCRYPT_blocks_to_run_a0 ) ? 1 :
@@ -626,7 +628,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                                           FpgaPins_Fpga_ENCRYPT_r_counter_a1;
             
                         //Perform the key schedule subroutine
-                        //_\source top.tlv 105   // Instantiated from top.tlv, 187 as: m5+keyschedule(|encrypt, /keyschedule, $start_key, $run_key, $reset, $r_counter, $ld_key)
+                        //_\source top.tlv 105   // Instantiated from top.tlv, 189 as: m5+keyschedule(|encrypt, /keyschedule, $start_key, $run_key, $reset, $r_counter, $ld_key)
                            //_/keyschedule
                         
                               //KEY is the exposed output to main. The current key to use will be displayed.
@@ -680,7 +682,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                                           FpgaPins_Fpga_ENCRYPT_state_i_a1;
             
                         //Perform the subbytes and shift row subroutines
-                        //_\source top.tlv 42   // Instantiated from top.tlv, 195 as: m5+subbytes(|encrypt, /subbytes, $state_i)
+                        //_\source top.tlv 42   // Instantiated from top.tlv, 197 as: m5+subbytes(|encrypt, /subbytes, $state_i)
                            //_/subbytes
                               for (sub_word = 0; sub_word <= 3; sub_word++) begin : L1_FpgaPins_Fpga_ENCRYPT_Subbytes_SubWord //_/sub_word
 
@@ -720,7 +722,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         assign FpgaPins_Fpga_ENCRYPT_state_ssr_a0[127:0] = FpgaPins_Fpga_ENCRYPT_r_counter_a0 ==0 ? FpgaPins_Fpga_ENCRYPT_state_i_a0 : FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
             
                         //Perform the mixcolumn subroutine
-                        //_\source top.tlv 79   // Instantiated from top.tlv, 199 as: m5+mixcolumn(|encrypt, /mixcolumn, $state_ssr)
+                        //_\source top.tlv 79   // Instantiated from top.tlv, 201 as: m5+mixcolumn(|encrypt, /mixcolumn, $state_ssr)
                            //_/mixcolumn
                         
                               assign FpgaPins_Fpga_ENCRYPT_Mixcolumn_const_matrix_a0[127:0] = 128'h02030101010203010101020303010102; //constant matrix for column multiplicaiton in the form of a vector
@@ -767,7 +769,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                         //If in ECB, check for a correct encryption
             
                      //_?$valid_check
-                        //_\source top.tlv 63   // Instantiated from top.tlv, 208 as: m5+check(|encrypt, /check, $state_i, $ui_in)
+                        //_\source top.tlv 63   // Instantiated from top.tlv, 210 as: m5+check(|encrypt, /check, $state_i, $ui_in)
                         
                            //_/check
                         
@@ -777,8 +779,8 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
                                            FpgaPins_Fpga_ENCRYPT_ui_in_a0 == 8 ? (FpgaPins_Fpga_ENCRYPT_state_i_a0 == 128'h7b90785125505fad59b13c186dd66ce3) :
                                            (FpgaPins_Fpga_ENCRYPT_state_i_a0 == 128'h8b527a6aebdaec9eaef8eda2cb7783e5);
                         
-                              assign uo_out = FpgaPins_Fpga_ENCRYPT_Check_pass_a0 ? 8'b00111111 :
-                                        8'b01110110;
+                              assign uo_out[6:0] = FpgaPins_Fpga_ENCRYPT_Check_pass_a0 ? 7'b0111111 :
+                                        7'b1110110;
                         //_\end_source
             
                // Connect Tiny Tapeout outputs. Note that uio_ outputs are not available in the Tiny-Tapeout-3-based FPGA boards.
@@ -821,7 +823,7 @@ logic [127:0] FpgaPins_Fpga_ENCRYPT_Subbytes_ssr_out_a0;
       
    //_\end_source
    // Label the switch inputs [0..7] (1..8 on the physical switch panel) (top-to-bottom).
-   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 273 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
+   //_\source /raw.githubusercontent.com/osfpga/VirtualFPGALab/35e36bd144fddd75495d4cbc01c4fc50ac5bde6f/tlvlib/tinytapeoutlib.tlv 82   // Instantiated from top.tlv, 275 as: m5+tt_input_labels_viz(⌈"Value[0]", "Value[1]", "Value[2]", "Value[3]", "Op[0]", "Op[1]", "Op[2]", "="⌉)
       for (input_label = 0; input_label <= 7; input_label++) begin : L1_InputLabel //_/input_label
          
       end
