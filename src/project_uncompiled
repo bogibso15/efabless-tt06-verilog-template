@@ -70,8 +70,8 @@
                    /_top$_ui_in == 8 ? (/_top$_state_f == 128'h7b90785125505fad59b13c186dd66ce3) :
                    (/_top$_state_f == 128'h8b527a6aebdaec9eaef8eda2cb7783e5);
       
-      *uo_out = $pass ? 8'b00111111 :
-                8'b01110110;
+      *uo_out[6:0] = $pass ? 7'b0111111 :
+                7'b1110110;
 
 //Module to perform the mix columns subroutine. See Section
 //5.1.3 (page 17) of the NIST AES Specification for more details.
@@ -139,6 +139,7 @@
          //                        
          
          $ui_in[7:0] = *ui_in;   //Input to determine mode/keys
+         //$uo_out[7:0] = *uo_out; //Output for trigger / checking
          $ofb = $ui_in[7];             //Switch to determine mode
          $blocks_to_run[22:0] = 2000000;     //Blocks of AES to run if in OFB
          
@@ -168,7 +169,8 @@
             //If in ECB, this checks to see if the AES block if completed
             
             
-            $ld_key = ((!$reset && >>1$reset) || >>1$r_counter == 10) ? 1 : 0;
+            $ld_key[0] = ((!$reset && >>1$reset) || >>1$r_counter == 10) ? 1 : 0;
+            *uo_out[7] = $ld_key[0];
             
             $run_key = (!$ld_key && >>1$ld_key) ? 1 :
                        (>>1$run_key && $ofb && >>1$blk_counter <= $blocks_to_run ) ? 1 :
@@ -274,4 +276,3 @@ module m5_user_module_name (
 
 \SV
 endmodule
-
